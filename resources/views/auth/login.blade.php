@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <div class="w-full h-full pt-20 bg-center bg-cover lg:pt-0" style="background-image: url({{ asset('image/wallpaper.webp') }})">
-        <div class="mx-auto p-4 lg:p-10 bg-white/75 rounded-3xl w-[90%] lg:w-[410px] relative lg:-translate-y-1/2 lg:top-1/2 col gap-14">
+    <div class="w-full min-h-screen bg-center bg-cover py-12" style="background-image: url({{ asset('image/wallpaper.webp') }})">
+        <div class="mx-auto p-4 lg:p-10 bg-white/75 rounded-3xl w-[90%] lg:w-[410px] relative col gap-14">
             <div class="gap-4 center-content">
                 <div>
                     <p class="text-4xl font-bold text-primary">Readme</p>

@@ -24,8 +24,8 @@
             [x-cloak] { display: none !important; }
         </style>
     </head>
-    <body class="scrollbar" style="font-family: 'Poppins', sans-serif;">
-        <main class="w-screen h-screen text-slate-900/80">
+    <body class="overflow-x-hidden" style="font-family: 'Poppins', sans-serif;">
+        <main class="w-screen min-h-screen text-slate-900/80 ">
             {{ $slot }}
         </main>
 
