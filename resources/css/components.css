@@ -1,0 +1,56 @@
+/* Form */
+.input-form{
+    @apply w-full bg-transparent shadow-input h-[40px] px-4 outline-none focus:shadow-none transition-[0.5s] border-r-[3px] border-l-[3px] border-black focus:border-t-[3px] focus:border-b-[3px] skew-x-[-15deg] focus:border-primary
+}
+
+.text-input{
+    @apply text-sm font-semibold select-none
+}
+
+.btn-form{
+    @apply px-8 py-3 text-white bg-primary transition-[1s] shadow-button skew-x-[-15deg] outline-none hover:transition-[0.5s] hover:shadow-button-h
+}
+
+.eye-form{
+    @apply w-[24px] h-[24px] stroke-primary cursor-pointer
+}
+
+/* Buttons */
+.btn-continue{
+    @apply h-10 w-10 bg-primary rounded-full hover:bg-secondary hover:shadow-input text-white flex justify-center items-center text-xl font-bold
+}
+
+/* Cards */
+.card-pokemon{
+    @apply  hover:shadow-button -skew-x-6 h-fit bg-primary/30 hover:bg-primary border-[8px] border-secondary/50 hover:border-secondary cursor-pointer z-10 relative
+}
+
+/* Size Screen */
+.w-all-pantalla{
+    @apply w-screen h-screen
+}
+
+.w-x-defecto{
+    @apply max-w-5xl mx-auto
+}
+
+/* flex box */
+.row{
+    @apply flex flex-row
+}
+
+.col{
+    @apply flex flex-col
+}
+
+.row-reverse{
+    @apply flex flex-row-reverse
+}
+
+.col-reverse{
+    @apply flex flex-col-reverse
+}
+
+.center-content{
+    @apply flex justify-center items-center
+}

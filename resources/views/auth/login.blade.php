@@ -1,48 +1,56 @@
 <x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+    <div class="w-full h-full pt-20 bg-center bg-cover lg:pt-0" style="background-image: url({{ asset('image/wallpaper.webp') }})">
+        <div class="mx-auto p-4 lg:p-10 bg-white/75 rounded-3xl w-[90%] lg:w-[410px] relative lg:-translate-y-1/2 lg:top-1/2 col gap-14">
+            <div class="gap-4 center-content">
+                <div>
+                    <p class="text-4xl font-bold text-primary">Readme</p>
+                    <p class="text-lg font-semibold text-secondary">FeedBack</p>
+                </div>
 
-        <x-validation-errors class="mb-4" />
-
-        @session('status')
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ $value }}
-            </div>
-        @endsession
-
-        <form method="POST" action="{{ route('login') }}">
-            @csrf
-
-            <div>
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+                <x-utils.icons.heart class="w-16 h-16" />
             </div>
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="current-password" />
-            </div>
+            <form action="/login" method="POST">
+                @csrf
 
-            <div class="block mt-4">
-                <label for="remember_me" class="flex items-center">
-                    <x-checkbox id="remember_me" name="remember" />
-                    <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                </label>
-            </div>
+                <div class="col">
+                    <div class="gap-5 col">
+                        <div class="gap-1 col">
+                            <p class="text-input">Correo electrónico</p>
+                            <input type="email" name="email" class="input-form" style="transition: all 0.5s" autofocus>
+                        </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+                        <div class="gap-1 col">
+                            <p class="text-input">Contraseña</p>
+                            <div class="relative" x-data="{ show: false }">
+                                <input :type="show === false ? 'password' : 'text'" name="password" class="input-form" style="transition: all 0.5s" autocomplete="off">
 
-                <x-button class="ms-4">
-                    {{ __('Log in') }}
-                </x-button>
-            </div>
-        </form>
-    </x-authentication-card>
+                                <div class="absolute top-2 right-3" @click="show = !show">
+                                    <div x-show="!show" class="hidden tooltip tooltip-top" data-tip="Ver contraseña">
+                                        <x-utils.icons.eye class="eye-form tooltip tooltip-top" />
+                                    </div>
+
+                                    <div x-show="show" class="tooltip tooltip-top" data-tip="Ocultar contraseña">
+                                        <x-utils.icons.eye-slash class="eye-form" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="mt-10 btn-form">
+                        <p class="skew-x-[15deg]">Iniciar Sesión</p>
+                    </button>
+
+                    <p class="items-center mt-10 col">
+                        ¿No tienes cuenta?
+
+                        <a href="/register" wire:navigate class="font-semibold hover:underline text-primary">
+                            Crear Cuenta
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
 </x-guest-layout>

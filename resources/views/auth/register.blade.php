@@ -1,60 +1,78 @@
 <x-guest-layout>
-    <x-authentication-card>
-        <x-slot name="logo">
-            <x-authentication-card-logo />
-        </x-slot>
+    <div class="w-full h-full pt-20 bg-center bg-cover lg:pt-0" style="background-image: url({{ asset('image/wallpaper.webp') }})">
+        <div class="mx-auto p-4 lg:p-10 bg-white/75 rounded-3xl w-[90%] lg:w-[410px] relative lg:-translate-y-1/2 lg:top-1/2 col gap-14">
+            <div class="gap-4 center-content">
+                <div>
+                    <p class="text-4xl font-bold text-primary">Readme</p>
+                    <p class="text-lg font-semibold text-secondary">FeedBack</p>
+                </div>
 
-        <x-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <div>
-                <x-label for="name" value="{{ __('Name') }}" />
-                <x-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+                <x-utils.icons.heart class="w-16 h-16" />
             </div>
 
-            <div class="mt-4">
-                <x-label for="email" value="{{ __('Email') }}" />
-                <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            </div>
+            <form action="/register" method="POST">
+                @csrf
 
-            <div class="mt-4">
-                <x-label for="password" value="{{ __('Password') }}" />
-                <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
+                <div class="col">
+                    <div class="gap-5 col">
+                        <div class="gap-1 col">
+                            <p class="text-input">Nombre</p>
+                            <input type="text" name="name" class="input-form" style="transition: all 0.5s" autofocus>
+                        </div>
 
-            <div class="mt-4">
-                <x-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+                        <div class="gap-1 col">
+                            <p class="text-input">Correo electrónico</p>
+                            <input type="email" name="email" class="input-form" style="transition: all 0.5s">
+                        </div>
 
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-label for="terms">
-                        <div class="flex items-center">
-                            <x-checkbox name="terms" id="terms" required />
+                        <div class="gap-1 col">
+                            <p class="text-input">Contraseña</p>
+                            <div class="relative" x-data="{ show: false }">
+                                <input :type="show === false ? 'password' : 'text'" name="password" class="input-form" style="transition: all 0.5s" autocomplete="off">
 
-                            <div class="ms-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">'.__('Privacy Policy').'</a>',
-                                ]) !!}
+                                <div class="absolute top-2 right-3" @click="show = !show">
+                                    <div x-show="!show" class="tooltip tooltip-top" data-tip="Ver contraseña">
+                                        <x-utils.icons.eye style="eye-form tooltip tooltip-top" />
+                                    </div>
+
+                                    <div x-show="show" class="tooltip tooltip-top" data-tip="Ocultar contraseña">
+                                        <x-utils.icons.eye-slash style="eye-form" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </x-label>
+
+                        <div class="gap-1 col">
+                            <p class="text-input">Confirmar contraseña</p>
+                            <div class="relative" x-data="{ show: false }">
+                                <input :type="show === false ? 'password' : 'text'" name="password_confirmation" class="input-form" style="transition: all 0.5s" autocomplete="off">
+
+                                <div class="absolute top-2 right-3" @click="show = !show">
+                                    <div x-show="!show" class="tooltip tooltip-top" data-tip="Ver contraseña">
+                                        <x-utils.icons.eye style="eye-form tooltip tooltip-top" />
+                                    </div>
+
+                                    <div x-show="show" class="tooltip tooltip-top" data-tip="Ocultar contraseña">
+                                        <x-utils.icons.eye-slash style="eye-form" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="mt-10 btn-form">
+                        <p class="skew-x-[15deg]">Registrarse</p>
+                    </button>
+
+                    <p class="items-center mt-10 col">
+                        ¿Ya tienes cuenta?
+
+                        <a href="/login" wire:navigate class="font-semibold hover:underline text-primary">
+                            Iniciar Sesión
+                        </a>
+                    </p>
                 </div>
-            @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-button class="ms-4">
-                    {{ __('Register') }}
-                </x-button>
-            </div>
-        </form>
-    </x-authentication-card>
+            </form>
+        </div>
+    </div>
 </x-guest-layout>

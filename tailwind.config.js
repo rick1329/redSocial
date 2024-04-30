@@ -13,11 +13,43 @@ export default {
 
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+            colors: {
+                'primary': '#6225E6',
+                'secondary': '#dc2626',
+                'dark': '#333333ff'
             },
+            backgroundColor: {
+                'primary': '#6225E6',
+                'secondary': '#dc2626',
+                'dark': '#333333ff'
+            },
+            borderColor: {
+                'primary': '#6225E6',
+                'secondary': '#dc2626',
+                'dark': '#333333ff'
+            },
+            divideColor: {
+                'primary': '#6225E6',
+                'secondary': '#dc2626',
+                'dark': '#333333ff'
+            },
+            fill: {
+                'primary': '#6225E6',
+                'secondary': '#dc2626',
+                'dark': '#333333ff'
+            },
+            stroke: {
+                'primary': '#6225E6',
+                'secondary': '#dc2626',
+                'dark': '#333333ff'
+            },
+            boxShadow: {
+                'button': '6px 6px 0 black',
+                'button-h': '10px 10px 0 #dc2626',
+                'input': '7px 7px 0px 0px black'
+            }
         },
     },
 
-    plugins: [forms, typography],
+    plugins: [forms, typography, require("daisyui")],
 };
