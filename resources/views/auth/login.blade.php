@@ -25,8 +25,8 @@
                             <div class="relative" x-data="{ show: false }">
                                 <input :type="show === false ? 'password' : 'text'" name="password" class="input-form" style="transition: all 0.5s" autocomplete="off">
 
-                                <div class="absolute top-2 right-3" @click="show = !show">
-                                    <div x-show="!show" class="hidden tooltip tooltip-top" data-tip="Ver contraseña">
+                                <div class="absolute top-1.5 right-3" @click="show = !show">
+                                    <div x-show="!show" class="tooltip tooltip-top" data-tip="Ver contraseña">
                                         <x-utils.icons.eye class="eye-form tooltip tooltip-top" />
                                     </div>
 

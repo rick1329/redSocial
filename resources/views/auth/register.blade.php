@@ -30,13 +30,13 @@
                             <div class="relative" x-data="{ show: false }">
                                 <input :type="show === false ? 'password' : 'text'" name="password" class="input-form" style="transition: all 0.5s" autocomplete="off">
 
-                                <div class="absolute top-2 right-3" @click="show = !show">
+                                <div class="absolute top-1 right-3" @click="show = !show">
                                     <div x-show="!show" class="tooltip tooltip-top" data-tip="Ver contraseña">
-                                        <x-utils.icons.eye style="eye-form tooltip tooltip-top" />
+                                        <x-utils.icons.eye class="eye-form tooltip tooltip-top" />
                                     </div>
 
                                     <div x-show="show" class="tooltip tooltip-top" data-tip="Ocultar contraseña">
-                                        <x-utils.icons.eye-slash style="eye-form" />
+                                        <x-utils.icons.eye-slash class="eye-form" />
                                     </div>
                                 </div>
                             </div>
@@ -49,11 +49,11 @@
 
                                 <div class="absolute top-2 right-3" @click="show = !show">
                                     <div x-show="!show" class="tooltip tooltip-top" data-tip="Ver contraseña">
-                                        <x-utils.icons.eye style="eye-form tooltip tooltip-top" />
+                                        <x-utils.icons.eye class="eye-form tooltip tooltip-top" />
                                     </div>
 
                                     <div x-show="show" class="tooltip tooltip-top" data-tip="Ocultar contraseña">
-                                        <x-utils.icons.eye-slash style="eye-form" />
+                                        <x-utils.icons.eye-slash class="eye-form" />
                                     </div>
                                 </div>
                             </div>
